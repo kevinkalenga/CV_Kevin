@@ -1,49 +1,6 @@
-// @import "reset";
-// @import "base"
-// @use "reset";
-// @use "base";
-
-// .grid-container {
-//     display: grid;
-//     grid:
-//       "picture header" auto 
-//       "aside main" 1fr / 350px auto;
-//     min-height: 100vh;
-// }
-
-// header {
-//     grid-area: header;
-//     background: linear-gradient(to right, var(--primary), var(--light));
-//     color: white;
-//     padding: 8rem 5rem;
-//     text-align: center;
-//     h1 {
-//       font-size: 6rem;
-//       line-height: 8rem;
-//       font-weight: 300;  
-//       letter-spacing: 2rem ;
-//     }
-//     p {
-//         font-size: 0.5rem;
-//     }
-// }
-// .picture {
-//     grid-area: picture;
-//     // background: red;
-// }
-
-// aside {
-//     grid-area: aside;
-//     // background: green;
-// }
-
-// main {
-//     grid-area: main;
-//     // background: purple;
-// }
-
 @use  "base" as *;
 @use  "reset" as *;
+@use "classes" as *;
 
 .grid-container {
   display: grid;
@@ -65,13 +22,14 @@ header {
   justify-content: center;
   align-items: center;
   h1 {
-    font-size: 2rem;
-    line-height: 2rem;
+    font-size: 4rem;
+    line-height: 1.5rem;
     font-weight: 300;
-    letter-spacing: 1rem;
+    letter-spacing: 0.5rem;
   }
   p {
     letter-spacing: 0.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -79,6 +37,7 @@ header {
   grid-area: picture;
   padding: 6rem;
   background: var(--background);
+  border-right: 1px solid #ddd;
   img {
     border-radius: 50%;
   }
@@ -86,6 +45,20 @@ header {
 
 aside {
   grid-area: aside;
+  background: var(--background);
+  border-right: 1px solid #ddd;
+  padding: 5rem;
+  .block {
+    margin-bottom: 5rem;
+    h3 {
+    margin-bottom: 0;
+    font-size: 2rem;
+   }
+   p {
+    margin: 0 0 2rem 0;
+    font-style: italic;
+   }
+ }
 }
 
 main {
