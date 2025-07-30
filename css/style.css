@@ -29,6 +29,14 @@ img {
   max-width: 100%;
 }
 
+.mb-5 {
+  margin-bottom: 5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 2rem !important;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -43,11 +51,23 @@ img {
 .text-primary {
   color: var(--primary);
 }
+.text-hint {
+  color: var(--hint);
+}
 
+/* Landscape phones and down */
+/* Landscape phone to portrait tablet */
+/* Portrait tablet to landscape and desktop */
+/* Large desktop */
 .grid-container {
   display: grid;
   min-height: 100vh;
-  grid: "picture header" auto "aside main" 1fr/350px auto;
+  grid: "picture header" auto "aside main" 1fr "footer footer" auto/350px auto;
+}
+@media (max-width: 480px) {
+  .grid-container {
+    grid: "header" auto "main" auto "picture" auto "aside" auto "footer" auto/auto;
+  }
 }
 
 header {
@@ -60,31 +80,47 @@ header {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 480px) {
+  header {
+    padding: 5rem 2rem;
+  }
+}
 header h1 {
   font-size: 4rem;
   line-height: 1.5rem;
   font-weight: 300;
-  letter-spacing: 0.5rem;
+  letter-spacing: 1rem;
+}
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 4rem;
+  }
 }
 header p {
-  letter-spacing: 0.5rem;
+  letter-spacing: 1rem;
   font-size: 2rem;
+}
+header span {
+  display: inline-block;
+  animation: bounce 2s;
 }
 
 .picture {
   grid-area: picture;
   padding: 6rem;
   background: var(--background);
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--border);
 }
 .picture img {
   border-radius: 50%;
+  width: 160px;
+  height: 150px;
 }
 
 aside {
   grid-area: aside;
   background: var(--background);
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--border);
   padding: 5rem;
   min-height: 1300px;
 }
@@ -131,9 +167,122 @@ aside .block .stars-container i {
   font-size: 2rem;
   margin: 0 1rem;
 }
+aside .block .social-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+aside .block .social-container i {
+  flex: 0 0 35px;
+  font-size: 2rem;
+}
 
 main {
   grid-area: main;
+  padding: 5rem;
+}
+@media (max-width: 480px) {
+  main {
+    padding: 5rem 1.5rem;
+  }
+}
+main h2 {
+  margin-bottom: 4rem;
+}
+main p {
+  letter-spacing: 0.1rem;
+  line-height: 3rem;
+  margin-bottom: 5rem;
+}
+main .experience {
+  display: flex;
+  margin: 6rem 0;
+}
+main .experience .timeline {
+  text-align: center;
+  color: var(--hint);
+  padding-right: 2rem;
+  border-right: 1px solid var(--border);
+}
+main .experience .timeline p {
+  margin: 0;
+}
+main .experience .content {
+  padding: 0 1rem;
+}
+main .experience .content h3 {
+  margin: 0;
+}
+main .experience .content p {
+  margin: 0;
+}
+main .experience .content ul {
+  list-style: circle;
+  padding-left: 4rem;
+  margin: 2rem 0;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  grid-area: footer;
+  padding: 5rem;
+  background: var(--text);
+}
+@media (max-width: 480px) {
+  footer {
+    padding: 5rem 1.5rem;
+  }
+}
+footer h2 {
+  margin-bottom: 3rem;
+}
+footer form {
+  display: flex;
+  align-items: center;
+}
+footer form .prefix {
+  background: linear-gradient(to right, var(--dark), var(--light));
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 2rem;
+  border-top-left-radius: 20%;
+  border-bottom-left-radius: 20%;
+}
+footer form button {
+  background: var(--text);
+  border: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+footer form button:hover {
+  opacity: 0.8;
+}
+footer form button .postfix {
+  background: linear-gradient(to right, var(--dark), var(--light));
+  padding: 1rem 2rem;
+  color: white;
+  font-size: 2rem;
+  border-top-right-radius: 20%;
+  border-bottom-right-radius: 20%;
+}
+footer form input {
+  outline: 0;
+  border: 0;
+  min-width: 400px;
+  padding: 1rem 2rem;
+  line-height: 2rem;
+}
+footer form input::placeholder {
+  color: var(--text);
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
