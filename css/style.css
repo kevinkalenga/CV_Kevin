@@ -234,6 +234,10 @@ main .experience .content ul {
   padding-left: 4rem;
   margin: 2rem 0;
 }
+main .experience .content ul li {
+  margin-bottom: 4px;
+  font-size: 18px;
+}
 
 footer {
   display: flex;
