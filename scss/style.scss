@@ -258,4 +258,124 @@ html::-webkit-scrollbar {
   display: none;
 }
 
-///////////////////////////////////////////////////// 
+
+//aws s3 sync . s3://mon-cv-web-s3 pour la mise à jour ds s3 une fois le cv est modifié
+
+@media print {
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+
+  .grid-container {
+    width: 210mm;
+    min-height: 297mm;
+    display: grid;
+
+    grid:
+      "picture header" 180px
+      "aside main" auto
+      "footer footer" auto
+      / 90mm auto;
+  }
+
+
+  header {
+    padding: 20px;
+
+    h1 {
+      font-size: 28px;
+      letter-spacing: 5px;
+    }
+
+    p {
+      font-size: 16px;
+      letter-spacing: 4px;
+    }
+  }
+
+
+  .picture {
+    padding: 30px;
+
+    img {
+      width: 120px;
+      height:120px;
+    }
+  }
+
+
+  aside {
+    padding:30px;
+    min-height:auto;
+
+    .block {
+      margin-bottom:25px;
+    }
+
+    h2 {
+      font-size:14px;
+    }
+
+    p {
+      font-size:12px;
+      margin-bottom:10px;
+    }
+  }
+
+
+  main {
+    padding:30px;
+
+    h2 {
+      margin-bottom:20px;
+      font-size:18px;
+    }
+
+
+    p {
+      font-size:12px;
+      line-height:1.5;
+      margin-bottom:20px;
+    }
+
+
+    .experience {
+
+      margin:25px 0;
+
+      .content {
+
+        ul {
+
+          padding-left:20px;
+
+          li {
+            font-size:12px;
+          }
+        }
+      }
+    }
+  }
+
+
+  footer {
+    padding:20px;
+    font-size:12px;
+  }
+
+
+  a {
+    color:black;
+    text-decoration:none;
+  }
+
+}
+
