@@ -477,34 +477,304 @@ html::-webkit-scrollbar {
 
 // }
 
-@media print {
+// @media print {
 
+//   @page {
+//     size: A4 portrait;
+//     margin: 6mm;
+//   }
+
+//   html,
+//   body {
+//     width: 100%;
+//     height: 100%;
+//     margin: 0;
+//     padding: 0;
+//   }
+
+//   body {
+//     -webkit-print-color-adjust: exact !important;
+//     print-color-adjust: exact !important;
+//     font-size: 9px;
+//   }
+
+//   .grid-container {
+//     width: 100%;
+//     min-height: 0;
+
+//     display: grid;
+
+//     grid-template-columns: 58mm 1fr;
+//     grid-template-rows: 32mm auto;
+
+//     grid-template-areas:
+//       "picture header"
+//       "aside main";
+
+//     gap: 0;
+
+//     overflow: visible;
+//   }
+
+//   /* =========================
+//      HEADER
+//   ========================= */
+
+//   header {
+//     grid-area: header;
+
+//     padding: 5mm 4mm;
+
+//     min-height: 0;
+
+//     h1 {
+//       font-size: 20px;
+//       line-height: 1.1;
+//       letter-spacing: 2px;
+//       margin: 0 0 5px 0;
+//     }
+
+//     p {
+//       font-size: 10px;
+//       letter-spacing: 1.5px;
+//       margin: 0;
+//     }
+//   }
+
+//   /* =========================
+//      PHOTO
+//   ========================= */
+
+//   .picture {
+//     grid-area: picture;
+
+//     padding: 5mm;
+
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     img {
+//       width: 25mm;
+//       height: 25mm;
+//       object-fit: cover;
+//       border-radius: 50%;
+//     }
+//   }
+
+//   /* =========================
+//      SIDEBAR
+//   ========================= */
+
+//   aside {
+//     grid-area: aside;
+
+//     min-height: 0;
+
+//     padding: 4mm;
+
+//     border-right: 1px solid var(--border);
+
+//     .block {
+//       margin-bottom: 3mm;
+
+//       h2 {
+//         font-size: 9px;
+//         margin: 0 0 2mm 0;
+//       }
+
+//       h3 {
+//         font-size: 8px;
+//         margin: 1mm 0;
+//       }
+
+//       p {
+//         font-size: 7.5px;
+//         line-height: 1.2;
+//         margin: 0 0 1.5mm 0;
+//       }
+
+//       /* Barres de compétences */
+
+//       .bar-skill {
+//         height: 2px;
+//         margin: 1.5mm 0 2mm 0;
+
+//         .bar-skill-progress {
+//           height: 2px;
+//         }
+
+//         .bar-skill-dot {
+//           width: 5px;
+//           height: 5px;
+//           left: calc(70% - 2.5px);
+//           top: -1.5px;
+//         }
+//       }
+
+//       /* Étoiles */
+
+//       .stars-container {
+//         margin: 1mm 0 2mm 0;
+
+//         i {
+//           font-size: 7px;
+//           margin: 0 1px;
+//         }
+//       }
+
+//       /* Liens */
+
+//       .social-container {
+//         margin-bottom: 1.5mm;
+
+//         i {
+//           flex: 0 0 15px;
+//           font-size: 9px;
+//         }
+
+//         span {
+//           font-size: 8px;
+//         }
+//       }
+
+//       .js,
+//       .css,
+//       .html {
+//         width: 40px;
+//       }
+//     }
+//   }
+
+//   /* =========================
+//      MAIN
+//   ========================= */
+
+//   main {
+//     grid-area: main;
+
+//     padding: 4mm 5mm;
+
+//     h2 {
+//       font-size: 11px;
+//       margin: 0 0 3mm 0;
+//     }
+
+//     > p {
+//       font-size: 8px;
+//       line-height: 1.35;
+//       margin: 0 0 4mm 0;
+//       letter-spacing: 0;
+//     }
+
+//     .experience {
+//       display: flex;
+
+//       margin: 0 0 4mm 0;
+
+//       break-inside: avoid;
+//       page-break-inside: avoid;
+
+//       .timeline {
+//         flex: 0 0 18mm;
+
+//         padding-right: 3mm;
+
+//         font-size: 7px;
+
+//         p {
+//           font-size: 7px;
+//           line-height: 1.2;
+//           margin: 0;
+//         }
+//       }
+
+//       .content {
+//         padding: 0 0 0 3mm;
+
+//         h3 {
+//           font-size: 9px;
+//           line-height: 1.2;
+//           margin: 0 0 1mm 0;
+//         }
+
+//         p {
+//           font-size: 7.5px;
+//           line-height: 1.3;
+//           margin: 0 0 1.5mm 0;
+//           letter-spacing: 0;
+//         }
+
+//         ul {
+//           padding-left: 4mm;
+//           margin: 1mm 0;
+
+//           li {
+//             font-size: 7.5px;
+//             line-height: 1.25;
+//             margin-bottom: 0.7mm;
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   /* =========================
+//      FOOTER
+//   ========================= */
+
+//   footer {
+//     display: none;
+//   }
+
+//   /* =========================
+//      LIENS
+//   ========================= */
+
+//   a {
+//     color: inherit !important;
+//     text-decoration: none !important;
+//   }
+
+//   /* =========================
+//      EVITER LES COUPURES
+//   ========================= */
+
+//   .experience,
+//   .block {
+//     break-inside: avoid;
+//     page-break-inside: avoid;
+//   }
+// }
+
+
+@media print {
   @page {
     size: A4 portrait;
-    margin: 6mm;
+    margin: 0;
   }
 
   html,
   body {
-    width: 100%;
-    height: 100%;
+    width: 210mm;
     margin: 0;
     padding: 0;
   }
 
   body {
+    font-size: 9px;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
-    font-size: 9px;
   }
 
   .grid-container {
-    width: 100%;
-    min-height: 0;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    padding: 0;
 
     display: grid;
-
-    grid-template-columns: 58mm 1fr;
+    grid-template-columns: 58mm 152mm;
     grid-template-rows: 32mm auto;
 
     grid-template-areas:
@@ -512,238 +782,6 @@ html::-webkit-scrollbar {
       "aside main";
 
     gap: 0;
-
-    overflow: visible;
-  }
-
-  /* =========================
-     HEADER
-  ========================= */
-
-  header {
-    grid-area: header;
-
-    padding: 5mm 4mm;
-
-    min-height: 0;
-
-    h1 {
-      font-size: 20px;
-      line-height: 1.1;
-      letter-spacing: 2px;
-      margin: 0 0 5px 0;
-    }
-
-    p {
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      margin: 0;
-    }
-  }
-
-  /* =========================
-     PHOTO
-  ========================= */
-
-  .picture {
-    grid-area: picture;
-
-    padding: 5mm;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 25mm;
-      height: 25mm;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-  }
-
-  /* =========================
-     SIDEBAR
-  ========================= */
-
-  aside {
-    grid-area: aside;
-
-    min-height: 0;
-
-    padding: 4mm;
-
-    border-right: 1px solid var(--border);
-
-    .block {
-      margin-bottom: 3mm;
-
-      h2 {
-        font-size: 9px;
-        margin: 0 0 2mm 0;
-      }
-
-      h3 {
-        font-size: 8px;
-        margin: 1mm 0;
-      }
-
-      p {
-        font-size: 7.5px;
-        line-height: 1.2;
-        margin: 0 0 1.5mm 0;
-      }
-
-      /* Barres de compétences */
-
-      .bar-skill {
-        height: 2px;
-        margin: 1.5mm 0 2mm 0;
-
-        .bar-skill-progress {
-          height: 2px;
-        }
-
-        .bar-skill-dot {
-          width: 5px;
-          height: 5px;
-          left: calc(70% - 2.5px);
-          top: -1.5px;
-        }
-      }
-
-      /* Étoiles */
-
-      .stars-container {
-        margin: 1mm 0 2mm 0;
-
-        i {
-          font-size: 7px;
-          margin: 0 1px;
-        }
-      }
-
-      /* Liens */
-
-      .social-container {
-        margin-bottom: 1.5mm;
-
-        i {
-          flex: 0 0 15px;
-          font-size: 9px;
-        }
-
-        span {
-          font-size: 8px;
-        }
-      }
-
-      .js,
-      .css,
-      .html {
-        width: 40px;
-      }
-    }
-  }
-
-  /* =========================
-     MAIN
-  ========================= */
-
-  main {
-    grid-area: main;
-
-    padding: 4mm 5mm;
-
-    h2 {
-      font-size: 11px;
-      margin: 0 0 3mm 0;
-    }
-
-    > p {
-      font-size: 8px;
-      line-height: 1.35;
-      margin: 0 0 4mm 0;
-      letter-spacing: 0;
-    }
-
-    .experience {
-      display: flex;
-
-      margin: 0 0 4mm 0;
-
-      break-inside: avoid;
-      page-break-inside: avoid;
-
-      .timeline {
-        flex: 0 0 18mm;
-
-        padding-right: 3mm;
-
-        font-size: 7px;
-
-        p {
-          font-size: 7px;
-          line-height: 1.2;
-          margin: 0;
-        }
-      }
-
-      .content {
-        padding: 0 0 0 3mm;
-
-        h3 {
-          font-size: 9px;
-          line-height: 1.2;
-          margin: 0 0 1mm 0;
-        }
-
-        p {
-          font-size: 7.5px;
-          line-height: 1.3;
-          margin: 0 0 1.5mm 0;
-          letter-spacing: 0;
-        }
-
-        ul {
-          padding-left: 4mm;
-          margin: 1mm 0;
-
-          li {
-            font-size: 7.5px;
-            line-height: 1.25;
-            margin-bottom: 0.7mm;
-          }
-        }
-      }
-    }
-  }
-
-  /* =========================
-     FOOTER
-  ========================= */
-
-  footer {
-    display: none;
-  }
-
-  /* =========================
-     LIENS
-  ========================= */
-
-  a {
-    color: inherit !important;
-    text-decoration: none !important;
-  }
-
-  /* =========================
-     EVITER LES COUPURES
-  ========================= */
-
-  .experience,
-  .block {
-    break-inside: avoid;
-    page-break-inside: avoid;
   }
 }
 
