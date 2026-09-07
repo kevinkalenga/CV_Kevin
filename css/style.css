@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 62.5%;
 }
@@ -300,6 +301,210 @@ footer form input::placeholder {
 
 html::-webkit-scrollbar {
   display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 6mm;
+  }
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 9px;
+  }
+  .grid-container {
+    width: 100%;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 58mm 1fr;
+    grid-template-rows: 32mm auto;
+    grid-template-areas: "picture header" "aside main";
+    gap: 0;
+    overflow: visible;
+  }
+  /* =========================
+     HEADER
+  ========================= */
+  header {
+    grid-area: header;
+    padding: 5mm 4mm;
+    min-height: 0;
+  }
+  header h1 {
+    font-size: 20px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin: 0 0 5px 0;
+  }
+  header p {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin: 0;
+  }
+  /* =========================
+     PHOTO
+  ========================= */
+  .picture {
+    grid-area: picture;
+    padding: 5mm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .picture img {
+    width: 25mm;
+    height: 25mm;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  /* =========================
+     SIDEBAR
+  ========================= */
+  aside {
+    grid-area: aside;
+    min-height: 0;
+    padding: 4mm;
+    border-right: 1px solid var(--border);
+  }
+  aside .block {
+    margin-bottom: 3mm;
+    /* Barres de compétences */
+    /* Étoiles */
+    /* Liens */
+  }
+  aside .block h2 {
+    font-size: 9px;
+    margin: 0 0 2mm 0;
+  }
+  aside .block h3 {
+    font-size: 8px;
+    margin: 1mm 0;
+  }
+  aside .block p {
+    font-size: 7.5px;
+    line-height: 1.2;
+    margin: 0 0 1.5mm 0;
+  }
+  aside .block .bar-skill {
+    height: 2px;
+    margin: 1.5mm 0 2mm 0;
+  }
+  aside .block .bar-skill .bar-skill-progress {
+    height: 2px;
+  }
+  aside .block .bar-skill .bar-skill-dot {
+    width: 5px;
+    height: 5px;
+    left: calc(70% - 2.5px);
+    top: -1.5px;
+  }
+  aside .block .stars-container {
+    margin: 1mm 0 2mm 0;
+  }
+  aside .block .stars-container i {
+    font-size: 7px;
+    margin: 0 1px;
+  }
+  aside .block .social-container {
+    margin-bottom: 1.5mm;
+  }
+  aside .block .social-container i {
+    flex: 0 0 15px;
+    font-size: 9px;
+  }
+  aside .block .social-container span {
+    font-size: 8px;
+  }
+  aside .block .js,
+  aside .block .css,
+  aside .block .html {
+    width: 40px;
+  }
+  /* =========================
+     MAIN
+  ========================= */
+  main {
+    grid-area: main;
+    padding: 4mm 5mm;
+  }
+  main h2 {
+    font-size: 11px;
+    margin: 0 0 3mm 0;
+  }
+  main > p {
+    font-size: 8px;
+    line-height: 1.35;
+    margin: 0 0 4mm 0;
+    letter-spacing: 0;
+  }
+  main .experience {
+    display: flex;
+    margin: 0 0 4mm 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  main .experience .timeline {
+    flex: 0 0 18mm;
+    padding-right: 3mm;
+    font-size: 7px;
+  }
+  main .experience .timeline p {
+    font-size: 7px;
+    line-height: 1.2;
+    margin: 0;
+  }
+  main .experience .content {
+    padding: 0 0 0 3mm;
+  }
+  main .experience .content h3 {
+    font-size: 9px;
+    line-height: 1.2;
+    margin: 0 0 1mm 0;
+  }
+  main .experience .content p {
+    font-size: 7.5px;
+    line-height: 1.3;
+    margin: 0 0 1.5mm 0;
+    letter-spacing: 0;
+  }
+  main .experience .content ul {
+    padding-left: 4mm;
+    margin: 1mm 0;
+  }
+  main .experience .content ul li {
+    font-size: 7.5px;
+    line-height: 1.25;
+    margin-bottom: 0.7mm;
+  }
+  /* =========================
+     FOOTER
+  ========================= */
+  footer {
+    display: none;
+  }
+  /* =========================
+     LIENS
+  ========================= */
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  /* =========================
+     EVITER LES COUPURES
+  ========================= */
+  .experience,
+  .block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
