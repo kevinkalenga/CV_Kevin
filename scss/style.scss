@@ -1047,69 +1047,10 @@ footer {
 /* =========================================================
    VERSION MOBILE
    ========================================================= */
-
-@include xs {
-
-  .picture {
-    padding: 3rem;
-
-    img {
-      width: 130px;
-      height: 130px;
-    }
-  }
-
-  header {
-    padding: 3rem;
-
-    h1 {
-      font-size: 2.5rem;
-    }
-  }
-
-  aside {
-    min-height: auto;
-    padding: 3rem;
-
-    .block {
-      margin-bottom: 3rem;
-    }
-  }
-
-  main {
-    padding: 3rem;
-
-    h2 {
-      margin-bottom: 3rem;
-    }
-
-    > p {
-      line-height: 2.2rem;
-      margin-bottom: 3rem;
-    }
-
-    .experience {
-      margin: 3rem 0;
-
-      .timeline {
-        flex: 0 0 80px;
-      }
-
-      .content {
-        ul {
-          li {
-            font-size: 15px;
-          }
-        }
-      }
-    }
-  }
-}
-
-
 /* =========================================================
-   IMPRESSION A4 — UNE SEULE PAGE
+   IMPRESSION A4
    ========================================================= */
+
 @media print {
 
   @page {
@@ -1117,124 +1058,132 @@ footer {
     margin: 0;
   }
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box !important;
-  }
-
   html,
   body {
-    width: 210mm !important;
-    height: 297mm !important;
     margin: 0 !important;
     padding: 0 !important;
-    overflow: hidden !important;
+    width: 210mm !important;
+    min-height: 0 !important;
   }
 
   body {
-    font-size: 9px !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
 
   /* =========================
-     PAGE A4
+     GRILLE A4
      ========================= */
 
   .grid-container {
-    width: 210mm !important;
-    height: 297mm !important;
-
-    min-width: 0 !important;
-    min-height: 0 !important;
-    max-width: 210mm !important;
-    max-height: 297mm !important;
-
     display: grid !important;
 
+    width: 210mm !important;
+    height: auto !important;
+    min-height: 0 !important;
+
     grid-template-columns: 55mm 155mm !important;
-    grid-template-rows: 28mm 269mm !important;
+    grid-template-rows: 28mm auto !important;
 
     grid-template-areas:
       "picture header"
       "aside main" !important;
 
     gap: 0 !important;
-    overflow: hidden !important;
   }
+
 
   /* =========================
      PHOTO
      ========================= */
 
   .picture {
+    grid-area: picture !important;
+
     width: 55mm !important;
     height: 28mm !important;
+
     padding: 2mm !important;
   }
 
   .picture img {
-    width: 30mm !important;
-    height: 24mm !important;
+    width: 25mm !important;
+    height: 25mm !important;
+
     object-fit: cover !important;
   }
+
 
   /* =========================
      HEADER
      ========================= */
 
   header {
+    grid-area: header !important;
+
     width: 155mm !important;
     height: 28mm !important;
+
     padding: 4mm !important;
   }
 
   header h1 {
     font-size: 22px !important;
+    line-height: 1.1 !important;
+
     margin: 0 0 1mm 0 !important;
   }
 
   header p {
-    font-size: 12px !important;
-    margin: 0 !important;
+    font-size: 11px !important;
+    line-height: 1.2 !important;
+
+    margin: 0 0 1mm 0 !important;
   }
 
-  header span {
+  header .availability {
     font-size: 9px !important;
   }
+
 
   /* =========================
      SIDEBAR
      ========================= */
 
   aside {
-    width: 55mm !important;
-    height: 269mm !important;
+    grid-area: aside !important;
 
-    min-width: 0 !important;
+    width: 55mm !important;
+
     min-height: 0 !important;
+    height: auto !important;
 
     padding: 3mm !important;
-
-    overflow: hidden !important;
   }
 
   aside .block {
-    margin-bottom: 2.5mm !important;
+    margin-bottom: 2mm !important;
   }
 
-  aside h2 {
-    font-size: 10px !important;
-    margin: 0 0 1.5mm 0 !important;
+  aside .block h2 {
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+
+    margin: 0 0 1mm 0 !important;
   }
 
-  aside p,
-  aside li,
-  aside span,
-  aside a {
-    font-size: 7.5px !important;
-    line-height: 1.2 !important;
+  aside .block h3 {
+    font-size: 8px !important;
+    line-height: 1.1 !important;
+
+    margin: 0 0 0.5mm 0 !important;
+  }
+
+  aside .block p {
+    font-size: 7px !important;
+    line-height: 1.15 !important;
+
+    margin: 0 0 1mm 0 !important;
   }
 
   aside ul {
@@ -1242,47 +1191,98 @@ footer {
     padding-left: 3mm !important;
   }
 
-  /* Barres de compétences */
-  aside .progress,
-  aside .skill-bar {
-    height: 2mm !important;
+  aside li {
+    font-size: 7px !important;
+    line-height: 1.15 !important;
   }
+
+
+  /* COMPÉTENCES */
+
+  aside .bar-skill {
+    height: 2px !important;
+    margin: 1mm 0 1.5mm !important;
+  }
+
+  aside .bar-skill-progress {
+    height: 2px !important;
+  }
+
+  aside .bar-skill-dot {
+    width: 5px !important;
+    height: 5px !important;
+
+    top: -1.5px !important;
+  }
+
+
+  /* LANGUES */
+
+  aside .stars-container {
+    margin: 1mm 0 1.5mm !important;
+  }
+
+  aside .stars-container i {
+    font-size: 7px !important;
+    margin-right: 1px !important;
+  }
+
+
+  /* LIENS */
+
+  aside .social-container {
+    margin-bottom: 1mm !important;
+  }
+
+  aside .social-container i {
+    flex: 0 0 15px !important;
+    font-size: 8px !important;
+  }
+
+  aside .social-container span {
+    font-size: 7px !important;
+  }
+
 
   /* =========================
      MAIN
      ========================= */
 
   main {
-    width: 155mm !important;
-    height: 269mm !important;
+    grid-area: main !important;
 
-    min-width: 0 !important;
+    width: 155mm !important;
+
     min-height: 0 !important;
+    height: auto !important;
 
     padding: 3mm 4mm !important;
-
-    overflow: hidden !important;
   }
 
   main h2 {
-    font-size: 12px !important;
-    margin: 0 0 2.5mm 0 !important;
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+
+    margin: 0 0 2mm 0 !important;
   }
 
   main > p {
-    font-size: 8.5px !important;
+    font-size: 8px !important;
     line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+
     margin: 0 0 3mm 0 !important;
   }
 
+
   /* =========================
-     EXPERIENCES
+     EXPÉRIENCES
      ========================= */
 
-  .experience {
+  main .experience {
     display: flex !important;
 
-    margin: 0 0 3mm 0 !important;
+    margin: 0 0 2.5mm 0 !important;
     padding: 0 !important;
 
     break-inside: avoid !important;
@@ -1290,32 +1290,39 @@ footer {
   }
 
   .timeline {
-    width: 19mm !important;
-    min-width: 19mm !important;
-    padding: 0 !important;
+    flex: 0 0 18mm !important;
+
+    width: 18mm !important;
+
+    padding-right: 2mm !important;
   }
 
   .timeline p {
-    font-size: 7.5px !important;
-    line-height: 1.05 !important;
+    font-size: 7px !important;
+    line-height: 1.1 !important;
+
     margin: 0 !important;
   }
 
   .content {
     flex: 1 !important;
     min-width: 0 !important;
+
+    padding-left: 2mm !important;
   }
 
   .content h3 {
-    font-size: 9px !important;
+    font-size: 8.5px !important;
     line-height: 1.15 !important;
-    margin: 0 0 0.8mm 0 !important;
+
+    margin: 0 0 0.5mm 0 !important;
   }
 
   .content p {
-    font-size: 7.5px !important;
+    font-size: 7px !important;
     line-height: 1.15 !important;
-    margin: 0 0 0.8mm 0 !important;
+
+    margin: 0 0 0.5mm 0 !important;
   }
 
   .content ul {
@@ -1324,163 +1331,28 @@ footer {
   }
 
   .content ul li {
-    font-size: 7.5px !important;
+    font-size: 7px !important;
     line-height: 1.15 !important;
-    margin-bottom: 0.6mm !important;
+
+    margin-bottom: 0.5mm !important;
   }
+
+
+  /* =========================
+     FOOTER
+     ========================= */
 
   footer {
     display: none !important;
   }
-}
 
-@media print {
 
-  @page {
-    size: A4 portrait;
-    margin: 0 !important;
-  }
+  /* =========================
+     LIENS
+     ========================= */
 
-  html,
-  body {
-    width: 210mm !important;
-    height: 297mm !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  body {
-    overflow: hidden !important;
-  }
-
-  /* UN SEUL CONTENEUR = UNE SEULE PAGE */
-  .grid-container {
-    display: grid !important;
-
-    width: 210mm !important;
-    height: 297mm !important;
-
-    min-height: 0 !important;
-    max-height: 297mm !important;
-
-    grid-template-columns: 55mm 155mm !important;
-    grid-template-rows: 28mm 269mm !important;
-
-    grid-template-areas:
-      "picture header"
-      "aside main" !important;
-
-    overflow: hidden !important;
-  }
-
-  /* Désactive toute hauteur minimale héritée */
-  .grid-container,
-  .grid-container > *,
-  header,
-  .picture,
-  aside,
-  main {
-    min-height: 0 !important;
-    max-height: none !important;
-  }
-
-  .picture {
-    grid-area: picture !important;
-    height: 28mm !important;
-    padding: 2mm !important;
-  }
-
-  header {
-    grid-area: header !important;
-    height: 28mm !important;
-    padding: 4mm !important;
-  }
-
-  aside {
-    grid-area: aside !important;
-    height: 269mm !important;
-    padding: 3mm !important;
-    overflow: hidden !important;
-  }
-
-  main {
-    grid-area: main !important;
-    height: 269mm !important;
-    padding: 3mm 4mm !important;
-    overflow: hidden !important;
-  }
-
-  /* Empêche les éléments de créer une page supplémentaire */
-  .experience,
-  .block,
-  h1,
-  h2,
-  h3,
-  p,
-  ul {
-    break-before: auto !important;
-    break-after: auto !important;
-    break-inside: avoid !important;
-
-    page-break-before: auto !important;
-    page-break-after: auto !important;
-    page-break-inside: avoid !important;
-  }
-
-  /* Pas de footer caché qui pourrait garder une hauteur */
-  footer {
-    display: none !important;
-    height: 0 !important;
-    min-height: 0 !important;
-    max-height: 0 !important;
-  }
-
-  /* Réduction générale */
-  aside .block {
-    margin-bottom: 2mm !important;
-  }
-
-  aside p,
-  aside li,
-  aside span,
-  aside a {
-    font-size: 7px !important;
-    line-height: 1.15 !important;
-  }
-
-  main h2 {
-    font-size: 11px !important;
-    margin-bottom: 2mm !important;
-  }
-
-  main > p {
-    font-size: 8px !important;
-    line-height: 1.2 !important;
-    margin-bottom: 2.5mm !important;
-  }
-
-  .experience {
-    margin-bottom: 2.5mm !important;
-  }
-
-  .content h3 {
-    font-size: 8.5px !important;
-    line-height: 1.1 !important;
-    margin-bottom: 0.5mm !important;
-  }
-
-  .content p,
-  .content li,
-  .timeline p {
-    font-size: 7px !important;
-    line-height: 1.1 !important;
-  }
-
-  .content ul {
-    margin: 0 !important;
-  }
-
-  .content ul li {
-    margin-bottom: 0.5mm !important;
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
   }
 }
