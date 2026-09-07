@@ -261,219 +261,489 @@ html::-webkit-scrollbar {
 
 //aws s3 sync . s3://mon-cv-web-s3 pour la mise à jour ds s3 une fois le cv est modifié
 
+// @media print {
+
+//   @page {
+//     size: A4;
+//     margin: 5mm;
+//   }
+
+//   body {
+//     -webkit-print-color-adjust: exact;
+//     print-color-adjust: exact;
+//     zoom: 0.70;
+//   }
+
+
+//   .grid-container {
+
+//     width: 210mm;
+//     min-height: 297mm;
+
+//     grid:
+//       "picture header" 120px
+//       "aside main" auto
+//       "footer footer" 60px
+//       / 75mm auto;
+//   }
+
+
+//   header {
+
+//     padding: 10px;
+
+//     h1 {
+//       font-size: 22px;
+//       letter-spacing: 3px;
+//       line-height: 1.2;
+//     }
+
+//     p {
+//       font-size: 12px;
+//       letter-spacing: 2px;
+//     }
+//   }
+
+
+//   .picture {
+
+//     padding: 15px;
+
+//     img {
+//       width: 90px;
+//       height: 90px;
+//     }
+//   }
+
+
+//   aside {
+
+//     padding: 15px;
+//     min-height: auto;
+
+//     .block {
+
+//       margin-bottom: 10px;
+
+//       h2 {
+//         font-size: 11px;
+//         margin-bottom: 5px;
+//       }
+
+
+//       h3 {
+//         font-size: 10px;
+//       }
+
+
+//       p {
+//         font-size: 9px;
+//         line-height: 1.2;
+//         margin-bottom: 5px;
+//       }
+
+
+//       .bar-skill {
+//         margin: 5px 0;
+//         height: 3px;
+//       }
+
+
+//       .stars-container {
+
+//         margin: 5px 0;
+
+//         i {
+//           font-size: 9px;
+//           margin:0 2px;
+//         }
+//       }
+
+//     }
+//   }
+
+
+
+//   main {
+
+//     padding: 15px;
+
+
+//     h2 {
+
+//       font-size: 13px;
+//       margin-bottom: 10px;
+
+//     }
+
+
+//     p {
+
+//       font-size: 10px;
+//       line-height: 1.3;
+//       margin-bottom: 8px;
+
+//     }
+
+
+
+//     .experience {
+
+//       margin: 10px 0;
+
+
+//       .timeline {
+
+//         padding-right: 5px;
+
+//         p {
+//           font-size: 9px;
+//         }
+
+//       }
+
+
+//       .content {
+
+//         padding:0 5px;
+
+
+//         h3 {
+
+//           font-size: 10px;
+
+//         }
+
+
+//         ul {
+
+//           padding-left:15px;
+//           margin:5px 0;
+
+
+//           li {
+
+//             font-size:9px;
+//             margin-bottom:1px;
+
+//           }
+
+//         }
+
+//       }
+
+//     }
+
+//   }
+
+
+
+//   footer {
+
+//     padding:10px;
+
+//     h2 {
+
+//       margin-bottom:5px;
+
+//     }
+
+
+//     p {
+
+//       font-size:9px;
+//       margin-bottom:3px;
+
+//     }
+
+//   }
+
+
+
+//   .experience,
+//   .block {
+
+//     break-inside: avoid;
+
+//   }
+
+
+//   a {
+
+//     color:black;
+//     text-decoration:none;
+
+//   }
+
+// }
+
 @media print {
 
   @page {
-    size: A4;
-    margin: 5mm;
+    size: A4 portrait;
+    margin: 6mm;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   body {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    zoom: 0.70;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 9px;
   }
-
 
   .grid-container {
+    width: 100%;
+    min-height: 0;
 
-    width: 210mm;
-    min-height: 297mm;
+    display: grid;
 
-    grid:
-      "picture header" 120px
-      "aside main" auto
-      "footer footer" 60px
-      / 75mm auto;
+    grid-template-columns: 58mm 1fr;
+    grid-template-rows: 32mm auto;
+
+    grid-template-areas:
+      "picture header"
+      "aside main";
+
+    gap: 0;
+
+    overflow: visible;
   }
 
+  /* =========================
+     HEADER
+  ========================= */
 
   header {
+    grid-area: header;
 
-    padding: 10px;
+    padding: 5mm 4mm;
+
+    min-height: 0;
 
     h1 {
-      font-size: 22px;
-      letter-spacing: 3px;
-      line-height: 1.2;
+      font-size: 20px;
+      line-height: 1.1;
+      letter-spacing: 2px;
+      margin: 0 0 5px 0;
     }
 
     p {
-      font-size: 12px;
-      letter-spacing: 2px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      margin: 0;
     }
   }
 
+  /* =========================
+     PHOTO
+  ========================= */
 
   .picture {
+    grid-area: picture;
 
-    padding: 15px;
+    padding: 5mm;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
-      width: 90px;
-      height: 90px;
+      width: 25mm;
+      height: 25mm;
+      object-fit: cover;
+      border-radius: 50%;
     }
   }
 
+  /* =========================
+     SIDEBAR
+  ========================= */
 
   aside {
+    grid-area: aside;
 
-    padding: 15px;
-    min-height: auto;
+    min-height: 0;
+
+    padding: 4mm;
+
+    border-right: 1px solid var(--border);
 
     .block {
-
-      margin-bottom: 10px;
+      margin-bottom: 3mm;
 
       h2 {
-        font-size: 11px;
-        margin-bottom: 5px;
+        font-size: 9px;
+        margin: 0 0 2mm 0;
       }
-
 
       h3 {
-        font-size: 10px;
+        font-size: 8px;
+        margin: 1mm 0;
       }
-
 
       p {
-        font-size: 9px;
+        font-size: 7.5px;
         line-height: 1.2;
-        margin-bottom: 5px;
+        margin: 0 0 1.5mm 0;
       }
 
+      /* Barres de compétences */
 
       .bar-skill {
-        margin: 5px 0;
-        height: 3px;
+        height: 2px;
+        margin: 1.5mm 0 2mm 0;
+
+        .bar-skill-progress {
+          height: 2px;
+        }
+
+        .bar-skill-dot {
+          width: 5px;
+          height: 5px;
+          left: calc(70% - 2.5px);
+          top: -1.5px;
+        }
       }
 
+      /* Étoiles */
 
       .stars-container {
-
-        margin: 5px 0;
+        margin: 1mm 0 2mm 0;
 
         i {
-          font-size: 9px;
-          margin:0 2px;
+          font-size: 7px;
+          margin: 0 1px;
         }
       }
 
+      /* Liens */
+
+      .social-container {
+        margin-bottom: 1.5mm;
+
+        i {
+          flex: 0 0 15px;
+          font-size: 9px;
+        }
+
+        span {
+          font-size: 8px;
+        }
+      }
+
+      .js,
+      .css,
+      .html {
+        width: 40px;
+      }
     }
   }
 
-
+  /* =========================
+     MAIN
+  ========================= */
 
   main {
+    grid-area: main;
 
-    padding: 15px;
-
+    padding: 4mm 5mm;
 
     h2 {
-
-      font-size: 13px;
-      margin-bottom: 10px;
-
+      font-size: 11px;
+      margin: 0 0 3mm 0;
     }
 
-
-    p {
-
-      font-size: 10px;
-      line-height: 1.3;
-      margin-bottom: 8px;
-
+    > p {
+      font-size: 8px;
+      line-height: 1.35;
+      margin: 0 0 4mm 0;
+      letter-spacing: 0;
     }
-
-
 
     .experience {
+      display: flex;
 
-      margin: 10px 0;
+      margin: 0 0 4mm 0;
 
+      break-inside: avoid;
+      page-break-inside: avoid;
 
       .timeline {
+        flex: 0 0 18mm;
 
-        padding-right: 5px;
+        padding-right: 3mm;
+
+        font-size: 7px;
 
         p {
-          font-size: 9px;
+          font-size: 7px;
+          line-height: 1.2;
+          margin: 0;
         }
-
       }
-
 
       .content {
-
-        padding:0 5px;
-
+        padding: 0 0 0 3mm;
 
         h3 {
-
-          font-size: 10px;
-
+          font-size: 9px;
+          line-height: 1.2;
+          margin: 0 0 1mm 0;
         }
 
+        p {
+          font-size: 7.5px;
+          line-height: 1.3;
+          margin: 0 0 1.5mm 0;
+          letter-spacing: 0;
+        }
 
         ul {
-
-          padding-left:15px;
-          margin:5px 0;
-
+          padding-left: 4mm;
+          margin: 1mm 0;
 
           li {
-
-            font-size:9px;
-            margin-bottom:1px;
-
+            font-size: 7.5px;
+            line-height: 1.25;
+            margin-bottom: 0.7mm;
           }
-
         }
-
       }
-
     }
-
   }
 
-
+  /* =========================
+     FOOTER
+  ========================= */
 
   footer {
-
-    padding:10px;
-
-    h2 {
-
-      margin-bottom:5px;
-
-    }
-
-
-    p {
-
-      font-size:9px;
-      margin-bottom:3px;
-
-    }
-
+    display: none;
   }
 
+  /* =========================
+     LIENS
+  ========================= */
 
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  /* =========================
+     EVITER LES COUPURES
+  ========================= */
 
   .experience,
   .block {
-
     break-inside: avoid;
-
+    page-break-inside: avoid;
   }
-
-
-  a {
-
-    color:black;
-    text-decoration:none;
-
-  }
-
 }
 
