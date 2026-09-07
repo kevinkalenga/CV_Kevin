@@ -1110,505 +1110,226 @@ footer {
 /* =========================================================
    IMPRESSION A4 — UNE SEULE PAGE
    ========================================================= */
-
 @media print {
-
-  /* =====================================================
-     A4
-     ===================================================== */
 
   @page {
     size: A4 portrait;
     margin: 0;
   }
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box !important;
+  }
+
   html,
   body {
     width: 210mm !important;
     height: 297mm !important;
-
     margin: 0 !important;
     padding: 0 !important;
-
     overflow: hidden !important;
-
-    font-size: 10px !important;
   }
 
+  body {
+    font-size: 9px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
 
-  /* =====================================================
-     CONTENEUR DU CV
-     ===================================================== */
+  /* =========================
+     PAGE A4
+     ========================= */
 
   .grid-container {
-
     width: 210mm !important;
     height: 297mm !important;
 
-    min-width: 210mm !important;
-    min-height: 297mm !important;
-
+    min-width: 0 !important;
+    min-height: 0 !important;
     max-width: 210mm !important;
     max-height: 297mm !important;
 
-    margin: 0 !important;
-    padding: 0 !important;
-
     display: grid !important;
 
-    grid-template-columns: 58mm 152mm !important;
-    grid-template-rows: 32mm 265mm !important;
+    grid-template-columns: 55mm 155mm !important;
+    grid-template-rows: 28mm 269mm !important;
 
     grid-template-areas:
       "picture header"
       "aside main" !important;
 
     gap: 0 !important;
-
     overflow: hidden !important;
-
-    /* TRÈS IMPORTANT */
-    position: relative !important;
   }
 
-
-  /* =====================================================
+  /* =========================
      PHOTO
-     ===================================================== */
+     ========================= */
 
   .picture {
+    width: 55mm !important;
+    height: 28mm !important;
+    padding: 2mm !important;
+  }
 
-    grid-area: picture !important;
+  .picture img {
+    width: 30mm !important;
+    height: 24mm !important;
+    object-fit: cover !important;
+  }
 
-    width: 58mm !important;
-    height: 32mm !important;
+  /* =========================
+     HEADER
+     ========================= */
+
+  header {
+    width: 155mm !important;
+    height: 28mm !important;
+    padding: 4mm !important;
+  }
+
+  header h1 {
+    font-size: 22px !important;
+    margin: 0 0 1mm 0 !important;
+  }
+
+  header p {
+    font-size: 12px !important;
+    margin: 0 !important;
+  }
+
+  header span {
+    font-size: 9px !important;
+  }
+
+  /* =========================
+     SIDEBAR
+     ========================= */
+
+  aside {
+    width: 55mm !important;
+    height: 269mm !important;
 
     min-width: 0 !important;
     min-height: 0 !important;
 
     padding: 3mm !important;
 
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-
-    overflow: hidden !important;
-  }
-
-  .picture img {
-
-    width: 23mm !important;
-    height: 23mm !important;
-
-    max-width: 23mm !important;
-
-    object-fit: cover !important;
-
-    border-radius: 50% !important;
-  }
-
-
-  /* =====================================================
-     HEADER
-     ===================================================== */
-
-  header {
-
-    grid-area: header !important;
-
-    width: 152mm !important;
-    height: 32mm !important;
-
-    min-width: 0 !important;
-    min-height: 0 !important;
-
-    padding: 4mm !important;
-
-    overflow: hidden !important;
-  }
-
-  header h1 {
-
-    font-size: 20px !important;
-
-    line-height: 1 !important;
-
-    letter-spacing: 1.5px !important;
-
-    margin: 0 0 3mm 0 !important;
-  }
-
-  header p {
-
-    font-size: 10px !important;
-
-    line-height: 1.2 !important;
-
-    letter-spacing: 1px !important;
-
-    margin: 0 0 2mm 0 !important;
-  }
-
-  header .availability {
-
-    display: block !important;
-
-    font-size: 8px !important;
-
-    line-height: 1.2 !important;
-
-    margin: 0 !important;
-  }
-
-
-  /* =====================================================
-     SIDEBAR
-     ===================================================== */
-
-  aside {
-
-    grid-area: aside !important;
-
-    width: 58mm !important;
-    height: 265mm !important;
-
-    min-width: 0 !important;
-    min-height: 0 !important;
-
-    max-width: 58mm !important;
-    max-height: 265mm !important;
-
-    padding: 4mm !important;
-
     overflow: hidden !important;
   }
 
   aside .block {
-
-    margin: 0 0 2.5mm 0 !important;
-
-    padding: 0 !important;
-
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
+    margin-bottom: 2.5mm !important;
   }
 
-  aside .block h2 {
-
-    font-size: 8px !important;
-
-    line-height: 1 !important;
-
-    margin: 0 0 1.2mm 0 !important;
+  aside h2 {
+    font-size: 10px !important;
+    margin: 0 0 1.5mm 0 !important;
   }
 
-  aside .block h3 {
-
-    font-size: 7px !important;
-
-    line-height: 1 !important;
-
-    margin: 1mm 0 !important;
+  aside p,
+  aside li,
+  aside span,
+  aside a {
+    font-size: 7.5px !important;
+    line-height: 1.2 !important;
   }
 
-  aside .block p {
-
-    font-size: 6.5px !important;
-
-    line-height: 1.1 !important;
-
-    margin: 0 0 0.8mm 0 !important;
+  aside ul {
+    margin: 0 !important;
+    padding-left: 3mm !important;
   }
 
-
-  /* -----------------------------------------------------
-     BARRES DE COMPÉTENCES
-     ----------------------------------------------------- */
-
-  aside .bar-skill {
-
-    width: 100% !important;
-
-    height: 1.5px !important;
-
-    margin: 0.8mm 0 1.2mm 0 !important;
-
-    background: #ddd !important;
+  /* Barres de compétences */
+  aside .progress,
+  aside .skill-bar {
+    height: 2mm !important;
   }
 
-  aside .bar-skill .bar-skill-progress {
-
-    height: 1.5px !important;
-  }
-
-  aside .bar-skill .bar-skill-dot {
-
-    width: 4px !important;
-    height: 4px !important;
-
-    top: -1.25px !important;
-
-    left: calc(70% - 2px) !important;
-  }
-
-
-  /* -----------------------------------------------------
-     LANGUES
-     ----------------------------------------------------- */
-
-  aside .stars-container {
-
-    margin: 0.5mm 0 1.2mm 0 !important;
-
-    line-height: 1 !important;
-  }
-
-  aside .stars-container i {
-
-    font-size: 6px !important;
-
-    margin: 0 0.5px !important;
-  }
-
-
-  /* -----------------------------------------------------
-     LIENS
-     ----------------------------------------------------- */
-
-  aside .social-container {
-
-    display: flex !important;
-
-    margin: 0 0 1mm 0 !important;
-
-    line-height: 1 !important;
-  }
-
-  aside .social-container i {
-
-    flex: 0 0 12px !important;
-
-    font-size: 8px !important;
-  }
-
-  aside .social-container span {
-
-    font-size: 7px !important;
-  }
-
-
-  /* =====================================================
+  /* =========================
      MAIN
-     ===================================================== */
+     ========================= */
 
   main {
-
-    grid-area: main !important;
-
-    width: 152mm !important;
-    height: 265mm !important;
+    width: 155mm !important;
+    height: 269mm !important;
 
     min-width: 0 !important;
     min-height: 0 !important;
 
-    max-width: 152mm !important;
-    max-height: 265mm !important;
-
-    padding: 4mm 5mm !important;
+    padding: 3mm 4mm !important;
 
     overflow: hidden !important;
   }
 
-
-  /* -----------------------------------------------------
-     TITRES
-     ----------------------------------------------------- */
-
   main h2 {
-
-    font-size: 10px !important;
-
-    line-height: 1 !important;
-
-    letter-spacing: 2px !important;
-
+    font-size: 12px !important;
     margin: 0 0 2.5mm 0 !important;
   }
 
-
-  /* -----------------------------------------------------
-     PROFIL
-     ----------------------------------------------------- */
-
   main > p {
-
-    font-size: 6.5px !important;
-
+    font-size: 8.5px !important;
     line-height: 1.25 !important;
-
-    letter-spacing: 0 !important;
-
     margin: 0 0 3mm 0 !important;
   }
 
+  /* =========================
+     EXPERIENCES
+     ========================= */
 
-  /* =====================================================
-     EXPÉRIENCES
-     ===================================================== */
-
-  main .experience {
-
+  .experience {
     display: flex !important;
 
-    width: 100% !important;
-
-    margin: 0 0 2.5mm 0 !important;
-
+    margin: 0 0 3mm 0 !important;
     padding: 0 !important;
 
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-
-  /* -----------------------------------------------------
-     DATE
-     ----------------------------------------------------- */
-
-  main .experience .timeline {
-
-    flex: 0 0 17mm !important;
-
-    width: 17mm !important;
-
-    padding: 0 2mm 0 0 !important;
+  .timeline {
+    width: 19mm !important;
+    min-width: 19mm !important;
+    padding: 0 !important;
   }
 
-  main .experience .timeline p {
-
-    font-size: 6.5px !important;
-
+  .timeline p {
+    font-size: 7.5px !important;
     line-height: 1.05 !important;
-
     margin: 0 !important;
   }
 
-
-  /* -----------------------------------------------------
-     CONTENU
-     ----------------------------------------------------- */
-
-  main .experience .content {
-
+  .content {
     flex: 1 !important;
-
     min-width: 0 !important;
-
-    padding: 0 0 0 2mm !important;
   }
 
-  main .experience .content h3 {
-
-    font-size: 7.5px !important;
-
-    line-height: 1.1 !important;
-
-    margin: 0 0 0.8mm 0 !important;
-  }
-
-  main .experience .content p {
-
-    font-size: 6.3px !important;
-
+  .content h3 {
+    font-size: 9px !important;
     line-height: 1.15 !important;
-
-    letter-spacing: 0 !important;
-
     margin: 0 0 0.8mm 0 !important;
   }
 
-  main .experience .content ul {
+  .content p {
+    font-size: 7.5px !important;
+    line-height: 1.15 !important;
+    margin: 0 0 0.8mm 0 !important;
+  }
 
-    margin: 0.8mm 0 !important;
-
+  .content ul {
+    margin: 0 !important;
     padding-left: 3.5mm !important;
   }
 
-  main .experience .content ul li {
-
-    font-size: 6.3px !important;
-
+  .content ul li {
+    font-size: 7.5px !important;
     line-height: 1.15 !important;
-
-    margin: 0 0 0.4mm 0 !important;
+    margin-bottom: 0.6mm !important;
   }
-
-
-  /* =====================================================
-     FOOTER
-     ===================================================== */
 
   footer {
     display: none !important;
-  }
-
-
-  /* =====================================================
-     LIENS
-     ===================================================== */
-
-  a {
-
-    color: inherit !important;
-
-    text-decoration: none !important;
-  }
-
-
-  /* =====================================================
-     EMPÊCHER LES ÉLÉMENTS DE FORCER UNE PAGE
-     ===================================================== */
-
-  .grid-container,
-  .grid-container *,
-  .grid-container *::before,
-  .grid-container *::after {
-
-    box-sizing: border-box !important;
-
-    min-width: 0 !important;
-    min-height: 0 !important;
-  }
-
-
-  /* =====================================================
-     IMPORTANT : AUCUN SAUT DE PAGE
-     ===================================================== */
-
-  header,
-  .picture,
-  aside,
-  main,
-  .experience,
-  .block {
-
-    break-before: avoid !important;
-    break-after: avoid !important;
-    break-inside: avoid !important;
-
-    page-break-before: avoid !important;
-    page-break-after: avoid !important;
-    page-break-inside: avoid !important;
-  }
-
-
-  /* =====================================================
-     COULEURS
-     ===================================================== */
-
-  body {
-
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
   }
 }
