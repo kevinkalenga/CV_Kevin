@@ -310,24 +310,44 @@ html::-webkit-scrollbar {
   html,
   body {
     width: 210mm;
+    height: 297mm;
     margin: 0;
     padding: 0;
   }
   body {
-    font-size: 9px;
+    overflow: hidden;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
   .grid-container {
     width: 210mm;
+    height: 297mm;
     min-height: 297mm;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: 58mm 152mm;
-    grid-template-rows: 32mm auto;
+    grid-template-rows: 32mm 265mm;
     grid-template-areas: "picture header" "aside main";
     gap: 0;
+    overflow: hidden;
+  }
+  .picture {
+    grid-area: picture;
+  }
+  header {
+    grid-area: header;
+  }
+  aside {
+    grid-area: aside;
+    overflow: hidden;
+  }
+  main {
+    grid-area: main;
+    overflow: hidden;
+  }
+  footer {
+    display: none;
   }
 }
 
