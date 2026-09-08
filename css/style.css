@@ -250,8 +250,8 @@ footer {
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
-    grid-template-columns: 55mm 155mm !important;
-    grid-template-rows: 28mm auto !important;
+    grid-template-columns: 48mm 162mm !important;
+    grid-template-rows: 34mm auto !important;
     grid-template-areas: "picture header" "aside main";
     gap: 0 !important;
   }
@@ -261,7 +261,7 @@ footer {
   .picture {
     grid-area: picture !important;
     width: 55mm !important;
-    height: 28mm !important;
+    height: 34mm !important;
     padding: 2mm !important;
     display: flex !important;
     justify-content: center !important;
@@ -278,17 +278,17 @@ footer {
   ========================= */
   header {
     grid-area: header !important;
-    width: 155mm !important;
+    width: 162mm !important;
     min-width: 0 !important;
-    height: 28mm !important;
-    padding: 4mm !important;
+    height: 34mm !important;
+    padding: 3mm 5mm !important;
     overflow: hidden !important;
   }
   header h1 {
-    font-size: 22px !important;
-    line-height: 1.1 !important;
-    letter-spacing: 2px !important;
-    margin: 0 0 1mm 0 !important;
+    font-size: 19px !important;
+    line-height: 1.2 !important;
+    letter-spacing: 1px !important;
+    margin: 0 0 2mm 0 !important;
   }
   header p {
     font-size: 11px !important;
