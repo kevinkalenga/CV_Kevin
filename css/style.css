@@ -236,54 +236,58 @@ footer {
   }
   html,
   body {
+    width: 210mm;
     margin: 0 !important;
     padding: 0 !important;
-    width: 210mm !important;
-    min-height: 0 !important;
   }
   body {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  /* =========================
-     GRILLE A4
-     ========================= */
   .grid-container {
     display: grid !important;
     width: 210mm !important;
-    height: auto !important;
     min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     grid-template-columns: 55mm 155mm !important;
     grid-template-rows: 28mm auto !important;
-    grid-template-areas: "picture header" "aside main" !important;
+    grid-template-areas: "picture header" "aside main";
     gap: 0 !important;
   }
   /* =========================
      PHOTO
-     ========================= */
+  ========================= */
   .picture {
     grid-area: picture !important;
     width: 55mm !important;
     height: 28mm !important;
     padding: 2mm !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
   .picture img {
     width: 25mm !important;
     height: 25mm !important;
     object-fit: cover !important;
+    border-radius: 50% !important;
   }
   /* =========================
      HEADER
-     ========================= */
+  ========================= */
   header {
     grid-area: header !important;
     width: 155mm !important;
+    min-width: 0 !important;
     height: 28mm !important;
     padding: 4mm !important;
+    overflow: hidden !important;
   }
   header h1 {
     font-size: 22px !important;
     line-height: 1.1 !important;
+    letter-spacing: 2px !important;
     margin: 0 0 1mm 0 !important;
   }
   header p {
@@ -293,19 +297,23 @@ footer {
   }
   header .availability {
     font-size: 9px !important;
+    line-height: 1.1 !important;
   }
   /* =========================
      SIDEBAR
-     ========================= */
+  ========================= */
   aside {
     grid-area: aside !important;
     width: 55mm !important;
     min-height: 0 !important;
     height: auto !important;
     padding: 3mm !important;
+    box-sizing: border-box !important;
   }
   aside .block {
     margin-bottom: 2mm !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
   aside .block h2 {
     font-size: 9px !important;
@@ -330,10 +338,13 @@ footer {
     font-size: 7px !important;
     line-height: 1.15 !important;
   }
-  /* COMPÉTENCES */
+  /* =========================
+     BARRES
+  ========================= */
   aside .bar-skill {
     height: 2px !important;
     margin: 1mm 0 1.5mm !important;
+    position: relative !important;
   }
   aside .bar-skill-progress {
     height: 2px !important;
@@ -343,7 +354,9 @@ footer {
     height: 5px !important;
     top: -1.5px !important;
   }
-  /* LANGUES */
+  /* =========================
+     LANGUES
+  ========================= */
   aside .stars-container {
     margin: 1mm 0 1.5mm !important;
   }
@@ -351,7 +364,9 @@ footer {
     font-size: 7px !important;
     margin-right: 1px !important;
   }
-  /* LIENS */
+  /* =========================
+     LIENS
+  ========================= */
   aside .social-container {
     margin-bottom: 1mm !important;
   }
@@ -364,13 +379,15 @@ footer {
   }
   /* =========================
      MAIN
-     ========================= */
+  ========================= */
   main {
     grid-area: main !important;
     width: 155mm !important;
+    min-width: 0 !important;
     min-height: 0 !important;
     height: auto !important;
     padding: 3mm 4mm !important;
+    box-sizing: border-box !important;
   }
   main h2 {
     font-size: 11px !important;
@@ -384,61 +401,73 @@ footer {
     margin: 0 0 3mm 0 !important;
   }
   /* =========================
-     EXPÉRIENCES
-     ========================= */
+     EXPERIENCES
+  ========================= */
   main .experience {
     display: flex !important;
+    width: 100% !important;
     margin: 0 0 2.5mm 0 !important;
     padding: 0 !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
-  .timeline {
+  main .timeline {
     flex: 0 0 18mm !important;
     width: 18mm !important;
     padding-right: 2mm !important;
   }
-  .timeline p {
+  main .timeline p {
     font-size: 7px !important;
     line-height: 1.1 !important;
     margin: 0 !important;
   }
-  .content {
+  main .content {
     flex: 1 !important;
     min-width: 0 !important;
     padding-left: 2mm !important;
   }
-  .content h3 {
+  main .content h3 {
     font-size: 8.5px !important;
     line-height: 1.15 !important;
     margin: 0 0 0.5mm 0 !important;
   }
-  .content p {
+  main .content p {
     font-size: 7px !important;
     line-height: 1.15 !important;
     margin: 0 0 0.5mm 0 !important;
   }
-  .content ul {
+  main .content ul {
     margin: 0 !important;
     padding-left: 3.5mm !important;
   }
-  .content ul li {
+  main .content ul li {
     font-size: 7px !important;
     line-height: 1.15 !important;
     margin-bottom: 0.5mm !important;
   }
   /* =========================
      FOOTER
-     ========================= */
+  ========================= */
   footer {
     display: none !important;
   }
   /* =========================
      LIENS
-     ========================= */
+  ========================= */
   a {
     color: inherit !important;
     text-decoration: none !important;
+  }
+  /* =========================
+     EMPÊCHER LES ÉLÉMENTS
+     DE CRÉER DES PAGES VIDES
+  ========================= */
+  h1,
+  h2,
+  h3,
+  p {
+    orphans: 2;
+    widows: 2;
   }
 }
 
