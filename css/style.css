@@ -236,7 +236,7 @@ footer {
   }
   html,
   body {
-    width: 210mm;
+    width: 205mm;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -246,7 +246,7 @@ footer {
   }
   .grid-container {
     display: grid !important;
-    width: 210mm !important;
+    width: 205mm !important;
     min-height: 0 !important;
     margin: 0 !important;
     padding: 0 !important;
