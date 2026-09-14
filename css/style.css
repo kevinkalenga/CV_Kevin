@@ -100,7 +100,7 @@ img {
 header {
   grid-area: header;
   padding: 5rem;
-  background: red !important;
+  background-color: blue;
   color: white !important;
 }
 header h1 {
